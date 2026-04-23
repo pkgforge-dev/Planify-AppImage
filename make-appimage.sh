@@ -13,8 +13,8 @@ export DESKTOP=/usr/share/applications/io.github.alainm23.planify.desktop
 
 # Deploy dependencies
 quick-sharun \
-	/usr/bin/planify \
-	/usr/bin/io.github.alainm23.planify*
+	/usr/bin/*planify* \
+	/usr/lib/evolution-data-server
 
 # Additional changes can be done in between here
 
