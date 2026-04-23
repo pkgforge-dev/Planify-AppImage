@@ -14,7 +14,7 @@ export DESKTOP=/usr/share/applications/io.github.alainm23.planify.desktop
 # Deploy dependencies
 quick-sharun \
 	/usr/bin/*planify* \
-	/usr/lib/evolution-data-server
+	/usr/lib/evolution-data-server/camel-providers
 
 # Additional changes can be done in between here
 
