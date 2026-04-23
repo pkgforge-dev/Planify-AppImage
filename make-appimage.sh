@@ -16,7 +16,8 @@ quick-sharun \
 	/usr/bin/*planify* \
 	/usr/lib/evolution-data-server/camel-providers
 
-# Additional changes can be done in between here
+# stop unconditional network request to flathub
+sed -i -e 's|https://flathub.org|XXXXXXXXXXXXXXXXXXX|g' ./AppDir/shared/bin/*
 
 # Turn AppDir into AppImage
 quick-sharun --make-appimage
