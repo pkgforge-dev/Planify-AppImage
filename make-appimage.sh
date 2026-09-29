@@ -3,21 +3,18 @@
 set -eu
 
 ARCH=$(uname -m)
-VERSION=$(pacman -Q planify | awk '{print $2; exit}') # example command to get version of application here
-export ARCH VERSION
+export ARCH
 export OUTPATH=./dist
 export ADD_HOOKS="self-updater.hook"
 export UPINFO="gh-releases-zsync|${GITHUB_REPOSITORY%/*}|${GITHUB_REPOSITORY#*/}|latest|*$ARCH.AppImage.zsync"
 export ICON=/usr/share/icons/hicolor/scalable/apps/io.github.alainm23.planify.svg
 export DESKTOP=/usr/share/applications/io.github.alainm23.planify.desktop
+export USE_HOST_DRIVERS_EXPERIMENTAL=1
 
 # Deploy dependencies
 quick-sharun \
 	/usr/bin/*planify* \
 	/usr/lib/evolution-data-server/camel-providers
-
-# stop unconditional network request to flathub
-sed -i -e 's|https://flathub.org|XXXXXXXXXXXXXXXXXXX|g' ./AppDir/shared/bin/*
 
 # Turn AppDir into AppImage
 quick-sharun --make-appimage

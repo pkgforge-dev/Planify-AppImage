@@ -1,0 +1,13 @@
+diff --git a/src/Layouts/Sidebar.vala b/src/Layouts/Sidebar.vala
+index d3c456a1e..d764c4421 100644
+--- a/src/Layouts/Sidebar.vala
++++ b/src/Layouts/Sidebar.vala
+@@ -173,2 +173,8 @@ public class Layouts.Sidebar : Adw.Bin {
+     private async void check_for_updates () {
++        // The update check queries the Flathub API and links to Flathub, so it
++        // only makes sense inside a Flatpak. AppImage ships its own updater.
++        if (!Util.get_default ().is_flatpak ()) {
++            return;
++        }
++
+         try {
